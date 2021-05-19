@@ -11,6 +11,7 @@ import com.aldhykohar.academy.data.ContentEntity
 import com.aldhykohar.academy.data.ModuleEntity
 import com.aldhykohar.academy.databinding.FragmentModuleContentBinding
 import com.aldhykohar.academy.ui.reader.CourseReaderViewModel
+import com.aldhykohar.academy.viewmodel.ViewModelFactory
 
 class ModuleContentFragment : Fragment() {
 
@@ -34,9 +35,9 @@ class ModuleContentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
+            val factory = ViewModelFactory.getInstance(requireActivity())
             val viewModel = ViewModelProvider(
-                requireActivity(),
-                ViewModelProvider.NewInstanceFactory()
+                requireActivity(), factory
             )[CourseReaderViewModel::class.java]
             val module = viewModel.getSelectedModule()
             populateWebView(module)
