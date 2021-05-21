@@ -1,13 +1,11 @@
 package com.aldhykohar.academy.ui.reader.content
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.aldhykohar.academy.R
-import com.aldhykohar.academy.data.ContentEntity
 import com.aldhykohar.academy.data.ModuleEntity
 import com.aldhykohar.academy.databinding.FragmentModuleContentBinding
 import com.aldhykohar.academy.ui.reader.CourseReaderViewModel
@@ -39,8 +37,13 @@ class ModuleContentFragment : Fragment() {
             val viewModel = ViewModelProvider(
                 requireActivity(), factory
             )[CourseReaderViewModel::class.java]
-            val module = viewModel.getSelectedModule()
-            populateWebView(module)
+            fragmentModuleContentBinding.progressBar.visibility = View.VISIBLE
+            viewModel.getSelectedModule().observe(viewLifecycleOwner, { module ->
+                fragmentModuleContentBinding.progressBar.visibility = View.GONE
+                if (module != null) {
+                    populateWebView(module)
+                }
+            })
         }
     }
 

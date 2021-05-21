@@ -1,17 +1,16 @@
 package com.aldhykohar.academy.ui.bookmark
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ShareCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aldhykohar.academy.R
 import com.aldhykohar.academy.data.CourseEntity
 import com.aldhykohar.academy.databinding.FragmentBookmarkBinding
-import com.aldhykohar.academy.utils.DataDummy
 import com.aldhykohar.academy.viewmodel.ViewModelFactory
 
 
@@ -40,10 +39,15 @@ class BookmarkFragment : Fragment(), BookmarkFragmentCallback {
             val viewModel = ViewModelProvider(
                 this,factory
             )[BookmarkViewModel::class.java]
-            val courses = viewModel.getBookmarks()
 
             val adapter = BookmarkAdapter(this)
-            adapter.setCourses(courses)
+
+            fragmentBookmarkBinding.progressBar.visibility = View.VISIBLE
+            viewModel.getBookmarks().observe(viewLifecycleOwner, { courses ->
+                fragmentBookmarkBinding.progressBar.visibility = View.GONE
+                adapter.setCourses(courses)
+                adapter.notifyDataSetChanged()
+            })
             with(fragmentBookmarkBinding.rvBookmark) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
