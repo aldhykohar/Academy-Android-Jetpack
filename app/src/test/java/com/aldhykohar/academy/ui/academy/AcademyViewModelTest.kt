@@ -3,8 +3,8 @@ package com.aldhykohar.academy.ui.academy
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.aldhykohar.academy.data.CourseEntity
 import com.aldhykohar.academy.data.source.AcademyRepository
+import com.aldhykohar.academy.data.source.local.entity.CourseEntity
 import com.aldhykohar.academy.utils.DataDummy
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull

@@ -2,9 +2,8 @@ package com.aldhykohar.academy.ui.bookmark
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.aldhykohar.academy.data.CourseEntity
 import com.aldhykohar.academy.data.source.AcademyRepository
-import com.aldhykohar.academy.utils.DataDummy
+import com.aldhykohar.academy.data.source.local.entity.CourseEntity
 
 
 /**

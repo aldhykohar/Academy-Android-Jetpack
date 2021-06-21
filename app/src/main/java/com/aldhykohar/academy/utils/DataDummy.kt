@@ -1,7 +1,7 @@
 package com.aldhykohar.academy.utils
 
-import com.aldhykohar.academy.data.CourseEntity
-import com.aldhykohar.academy.data.ModuleEntity
+import com.aldhykohar.academy.data.source.local.entity.CourseEntity
+import com.aldhykohar.academy.data.source.local.entity.ModuleEntity
 import com.aldhykohar.academy.data.source.remote.response.ContentResponse
 import com.aldhykohar.academy.data.source.remote.response.CourseResponse
 import com.aldhykohar.academy.data.source.remote.response.ModuleResponse
@@ -33,12 +33,14 @@ object DataDummy {
             "75 Hari",
             false,
             "https://www.dicoding.com/images/small/academy/menjadi_game_developer_expert_logo_070119140532.jpg"))
-        courses.add(CourseEntity("a74",
+        courses.add(
+            CourseEntity("a74",
             "Membangun Progressive Web Apps",
             "Progressive Web Apps adalah aplikasi web yang memanfaatkan beragam fitur web modern sehingga dapat menyajikan pengalaman pengguna seperti aplikasi native. PWA mengubah sajian tampilan yang umumnya dibuka melalui halaman browser menjadi jendela aplikasi tersendiri. Selain itu PWA juga memungkinkan konten halaman diakses dalam mode offline, menampilkan pesan pemberitahuan, hingga akses ke hardware dari perangkat seperti halnya native app.",
             "50 Hari",
             false,
-            "https://www.dicoding.com/images/small/academy/membangun_progressive_web_apps_logo_070119142922.jpg"))
+            "https://www.dicoding.com/images/small/academy/membangun_progressive_web_apps_logo_070119142922.jpg")
+        )
         courses.add(CourseEntity("a51",
             "Belajar Membuat Aplikasi Android untuk Pemula", "Kelas ini didesain oleh Google Authorized Training Partner untuk developer Android di Indonesia. Peserta akan mempelajari materi dasar Android dalam 30 hari dan diarahkan untuk membuat aplikasi sederhana. Terdapat 27 modul yang juga merupakan bagian dari Kelas Menjadi Android Developer Expert. Peserta disarankan setidaknya memiliki pengetahuan tentang programming Java dan atau pemrograman berorientasi objek. Sistem pembelajaran adalah online (dapat diakses kapanpun dan darimanapun selama tersedia internet) dan kehadiran tatap muka tidak diperlukan. Tools yang diwajibkan untuk kelas belajar Android ini adalah Android Studio. Peserta harus submit satu proyek akhir yang akan direview oleh developer expert untuk mendapatkan sertifikat dari kelas ini. Bila menginginkan materi yang lebih komprehensif, silahkan mengikuti kelas Menjadi Android Developer Expert.",
             "30 Hari",
@@ -69,10 +71,12 @@ object DataDummy {
             courseId,
             "Bedah Kode 1",
             3, false))
-        modules.add(ModuleEntity("{$courseId}m5",
+        modules.add(
+            ModuleEntity("{$courseId}m5",
             courseId,
             "Modul 2 : Teori 2",
-            4, false))
+            4, false)
+        )
 
         modules.add(ModuleEntity("{$courseId}m6",
             courseId,

@@ -3,7 +3,7 @@ package com.aldhykohar.academy.ui.reader.list
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.aldhykohar.academy.data.ModuleEntity
+import com.aldhykohar.academy.data.source.local.entity.ModuleEntity
 import com.aldhykohar.academy.databinding.ItemsModuleListCustomBinding
 
 
@@ -31,6 +31,7 @@ class ModuleListAdapter internal constructor(private val listener: MyAdapterClic
             listener.onItemClicked(viewHolder.adapterPosition, listModules[viewHolder.adapterPosition].moduleId)
         }
     }
+
 
     override fun getItemCount(): Int = listModules.size
 
