@@ -3,6 +3,8 @@ package com.aldhykohar.academy.ui.academy
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.aldhykohar.academy.R
 import com.aldhykohar.academy.data.source.local.entity.CourseEntity
@@ -15,7 +17,7 @@ import com.bumptech.glide.request.RequestOptions
 /**
  * Created by aldhykohar on 5/2/2021.
  */
-class AcademyAdapter : RecyclerView.Adapter<AcademyAdapter.CourseViewHolder>() {
+class AcademyAdapter : PagedListAdapter<CourseEntity,AcademyAdapter.CourseViewHolder>(DIFF_CALLBACK) {
     private var listCourses = ArrayList<CourseEntity>()
 
     fun setCourses(courses: List<CourseEntity>?) {
@@ -53,6 +55,16 @@ class AcademyAdapter : RecyclerView.Adapter<AcademyAdapter.CourseViewHolder>() {
                         RequestOptions.placeholderOf(R.drawable.ic_loading)
                         .error(R.drawable.ic_error))
                     .into(imgPoster)
+            }
+        }
+    }
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<CourseEntity>() {
+            override fun areItemsTheSame(oldItem: CourseEntity, newItem: CourseEntity): Boolean {
+                return oldItem.courseId == newItem.courseId
+            }
+            override fun areContentsTheSame(oldItem: CourseEntity, newItem: CourseEntity): Boolean {
+                return oldItem == newItem
             }
         }
     }
