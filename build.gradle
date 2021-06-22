@@ -44,4 +44,5 @@ ext {
     glideVersion = '4.11.0'
     roomVersion = '2.2.3'
     roomRuntimeVersion = '2.2.5'
+    archLifecycleVersion = '2.2.0'
 }
